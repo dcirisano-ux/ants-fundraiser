@@ -4,9 +4,9 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Rise Up for Lincoln Center | Help Support a Young Performer',
-  description: 'Help send a talented young performer to Lincoln Center in New York City. Be part of his shot - donate today!',
-  generator: 'v0.app',
+  title: 'Help Anthony Take the Stage | Lincoln Center Fundraiser',
+  description: 'Support Anthony on his journey to perform at Lincoln Center in New York City. Your donation helps make this dream a reality.',
+  generator: 'Next.js',
   icons: {
     icon: [
       {
@@ -24,6 +24,17 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
   },
+  openGraph: {
+    title: 'Help Anthony Take the Stage | Lincoln Center Fundraiser',
+    description: 'Support Anthony on his journey to perform at Lincoln Center in NYC.',
+    type: 'website',
+  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#f97316',
 }
 
 export default function RootLayout({
@@ -37,7 +48,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
