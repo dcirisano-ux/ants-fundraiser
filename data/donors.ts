@@ -23,7 +23,7 @@ export interface Donor {
 // UPDATE THIS SECTION AS DONATIONS COME IN
 // ==============================================
 
-export const DONATION_GOAL = 2000
+export const DONATION_GOAL = 2450
 
 // Add new donors here - most recent first
 export const DONORS: Donor[] = [
