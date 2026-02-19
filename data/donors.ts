@@ -76,8 +76,8 @@ export const DONORS: Donor[] = [
   },
 ]
 
-// This is calculated automatically from the DONORS array
-export const CURRENT_TOTAL = DONORS.reduce((sum, donor) => sum + donor.amount, 0)
+// Manually set to reflect actual amount raised
+export const CURRENT_TOTAL = 700
 
 // ==============================================
 // CONFIGURATION

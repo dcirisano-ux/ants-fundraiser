@@ -3,7 +3,8 @@ import { DonationTracker } from "@/components/donation-tracker"
 import { StorySection } from "@/components/story-section"
 import { DonationSection } from "@/components/donation-section"
 import { DonorWall } from "@/components/donor-wall"
-import { Heart } from "lucide-react"
+import { AnimatedBackground } from "@/components/animated-background"
+import { Star } from "lucide-react"
 
 import {
   DONORS,
@@ -19,6 +20,8 @@ import {
 export default function FundraiserPage() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
+      <AnimatedBackground />
+
       <div className="relative z-10">
         <HeroSection performerName={PERFORMER_NAME} />
 
@@ -55,7 +58,7 @@ export default function FundraiserPage() {
         <section className="py-20 px-6">
           <div className="max-w-xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mb-6">
-              <Heart className="w-5 h-5 text-primary" />
+              <Star className="w-5 h-5 text-primary" />
             </div>
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
               Thank you for your support

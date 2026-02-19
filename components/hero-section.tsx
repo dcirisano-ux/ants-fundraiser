@@ -17,6 +17,16 @@ export function HeroSection({ performerName }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
+      {/* Stage spotlight effects */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }}
+        />
+        <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/10 to-transparent" />
+        <div className="absolute top-0 right-1/4 w-px h-32 bg-gradient-to-b from-primary/10 to-transparent" />
+      </div>
+
       <div className="relative z-10 text-center max-w-3xl mx-auto">
         {/* Small label */}
         <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-8 animate-fadeIn">
@@ -32,18 +42,19 @@ export function HeroSection({ performerName }: HeroSectionProps) {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-muted-foreground mb-12 max-w-lg mx-auto leading-relaxed animate-slideUp" style={{ animationDelay: '0.1s' }}>
-          Support a young performer&apos;s once-in-a-lifetime journey to
+        <p className="text-base md:text-lg text-muted-foreground mb-12 max-w-lg mx-auto leading-relaxed animate-slideUp" style={{ animationDelay: "0.1s" }}>
+          Support a young actor and singer on his once-in-a-lifetime journey to
           perform at one of the world&apos;s most iconic venues.
         </p>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 animate-slideUp" style={{ animationDelay: '0.2s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 animate-slideUp" style={{ animationDelay: "0.2s" }}>
           <button
             onClick={scrollToDonate}
-            className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-opacity text-base"
+            className="group relative px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-all text-base overflow-hidden"
           >
-            Donate now
+            <span className="relative z-10">Donate now</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
           </button>
           <button
             onClick={scrollToContent}

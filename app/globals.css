@@ -104,3 +104,29 @@ html {
 .animate-countUp {
   animation: countUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes floatBaseball {
+  0%, 100% { opacity: 0; transform: translateY(0) rotate(0deg); }
+  10% { opacity: 0.12; }
+  50% { opacity: 0.12; transform: translateY(-40px) rotate(180deg); }
+  90% { opacity: 0.12; }
+}
+
+@keyframes floatMask {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+  10% { opacity: 0.1; }
+  50% { opacity: 0.1; transform: translateY(-24px) scale(1.05); }
+  90% { opacity: 0.1; }
+}
+
+@keyframes spotlightSweep {
+  0%, 100% { opacity: 0; transform: translateX(0); }
+  20% { opacity: 1; }
+  50% { opacity: 1; transform: translateX(60px); }
+  80% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
