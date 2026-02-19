@@ -9,11 +9,10 @@ interface DonorWallProps {
 
 export function DonorWall({ donors }: DonorWallProps) {
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-    })
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    const [year, month, day] = dateString.split("-").map(Number)
+    void year
+    return `${months[month - 1]} ${day}`
   }
 
   const formatAmount = (amount: number) => {
