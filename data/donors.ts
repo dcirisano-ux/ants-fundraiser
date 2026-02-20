@@ -27,52 +27,23 @@ export const DONATION_GOAL = 2450
 
 // Add new donors here - most recent first
 export const DONORS: Donor[] = [
-  // Example entries - replace with real donors:
   {
-    name: "The Rosenbaum Family",
+    name: "Papa",
+    amount: 500,
+    message: "So proud of you!",
+    date: "2026-02-19"
+  },
+  {
+    name: "Grandma Joanne",
+    amount: 100,
+    message: "Love you Anthony. Keep reaching for the stars!",
+    date: "2026-02-18"
+  },
+  {
+    name: "Titi Em and Uncle Norm",
     amount: 100,
     message: "Break a leg, Anthony!",
-    date: "2026-01-18"
-  },
-  {
-    name: "Anonymous",
-    amount: 50,
-    date: "2026-01-17"
-  },
-  {
-    name: "Grandma & Grandpa",
-    amount: 200,
-    message: "So proud of you!",
-    date: "2026-01-16"
-  },
-  {
-    name: "Uncle Mike",
-    amount: 75,
-    message: "Can't wait to hear about the show!",
-    date: "2026-01-15"
-  },
-  {
-    name: "The Martinez Family",
-    amount: 50,
-    date: "2026-01-14"
-  },
-  {
-    name: "Coach Johnson",
-    amount: 25,
-    message: "Go get 'em, champ!",
-    date: "2026-01-13"
-  },
-  {
-    name: "Mrs. Thompson",
-    amount: 100,
-    message: "Your drama teacher believes in you!",
-    date: "2026-01-12"
-  },
-  {
-    name: "The Neighborhood Gang",
-    amount: 150,
-    message: "From all of us on Oak Street",
-    date: "2026-01-11"
+    date: "2026-02-17"
   },
 ]
 
@@ -86,9 +57,9 @@ export const CURRENT_TOTAL = 700
 export const PERFORMER_NAME = "Anthony"
 
 // Payment information
-export const VENMO_USERNAME = "your-venmo-username"  // Update with real username
+export const VENMO_USERNAME = "anthonycirisano"
 export const ZELLE_EMAIL = "your-email@example.com"  // Update with real email/phone
-export const ZELLE_PHONE = "(555) 123-4567"          // Alternative Zelle contact
+export const ZELLE_PHONE = "561-350-8143"
 
 // Optional: Add a note for donors
 export const DONATION_NOTE = `For Anthony's Lincoln Center Trip`

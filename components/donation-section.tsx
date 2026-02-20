@@ -175,7 +175,7 @@ export function DonationSection({
 
                     {/* Phone */}
                     <div className="p-4 bg-background rounded-2xl">
-                      <p className="text-xs text-muted-foreground mb-1.5">Or send to phone</p>
+                      <p className="text-xs text-muted-foreground mb-1.5">Zelle just a phone number</p>
                       <div className="flex items-center justify-between gap-3">
                         <code className="text-foreground font-medium text-sm">{zellePhone}</code>
                         <button
