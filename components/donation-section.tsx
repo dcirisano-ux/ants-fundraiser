@@ -120,7 +120,7 @@ export function DonationSection({
                       src="/images/venmo-qr.png"
                       alt={`Venmo QR code for @${venmoUsername}`}
                       width={200}
-                      height={300}
+                      height={200}
                       className="rounded-lg object-contain"
                     />
                   </div>
