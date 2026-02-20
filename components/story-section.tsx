@@ -12,7 +12,7 @@ export function StorySection({ performerName }: StorySectionProps) {
     {
       icon: Theater,
       title: "The Performance",
-      description: "Selected to perform at the iconic Lincoln Center in New York City with his theater group",
+      description: "Selected to perform at the iconic Lincoln Center in NYC with numerous students across the country",
     },
     {
       icon: MapPin,
@@ -21,8 +21,8 @@ export function StorySection({ performerName }: StorySectionProps) {
     },
     {
       icon: Film,
-      title: "On Screen",
-      description: `Starred in the short film "Honey Bear" (Rising Voices Series on Hulu) and appeared on Investigation Discovery's "Evil Lives Here"`,
+      title: "His Passions",
+      description: "Making people smile through Music and Theater, whether it be on screen or on a stage.",
     },
     {
       icon: Star,
@@ -71,12 +71,23 @@ export function StorySection({ performerName }: StorySectionProps) {
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 text-balance">
               Meet {performerName}
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-              {performerName} Cirisano is a young American actor and singer who has been making
-              waves in theater and film since he first discovered his passion for performing,
-              inspired by Hamilton, in 2021. Managed by Ivy Artists Management and MSA Agency,
-              he is recognized as an emerging talent in both acting and singing.
-            </p>
+            <div className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed space-y-4 text-center">
+              <p>
+                Hi, my name is Anthony, and I&apos;m so excited to share an incredible opportunity with you!
+              </p>
+              <p>
+                After auditioning, I was honored to be one of the students selected to represent Eagles Landing Middle School in the National Youth Chorus. Along with several of my peers, I will be traveling to New York City to perform at Lincoln Center. We will be singing alongside talented students from across the country under the direction of renowned conductor Roger Emerson.
+              </p>
+              <p>
+                Music has become such an important part of my life, and being chosen for this experience means so much to me. Not only will I get to perform on an incredible stage, but I will also grow as a musician while learning from amazing mentors. During the trip, we will also explore museums and take a behind the scenes tour of Carnegie Hall, something I have only dreamed about!
+              </p>
+              <p>
+                This is truly a once in a lifetime opportunity, and I am working hard to make it happen. If you are able to support me in reaching my goal, I would be so grateful. Every donation, no matter the size, helps me get one step closer to New York City and this unforgettable experience.
+              </p>
+              <p>
+                Thank you so much for supporting me and being part of my musical journey! 🎶
+              </p>
+            </div>
           </div>
         </ScrollReveal>
 
