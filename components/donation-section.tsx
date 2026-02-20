@@ -22,7 +22,6 @@ export function DonationSection({
 
   const venmoUrl = `https://venmo.com/${venmoUsername}`
   const venmoDeepLink = `venmo://paycharge?txn=pay&recipients=${venmoUsername}`
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(venmoUrl)}&bgcolor=ffffff&color=000000`
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
@@ -118,12 +117,11 @@ export function DonationSection({
 
                   <div className="bg-[#ffffff] p-4 rounded-2xl inline-block mb-4">
                     <img
-                      src={qrCodeUrl}
+                      src="/images/venmo-qr.png"
                       alt={`Venmo QR code for @${venmoUsername}`}
-                      width={180}
-                      height={180}
-                      className="rounded-lg"
-                      crossOrigin="anonymous"
+                      width={200}
+                      height={300}
+                      className="rounded-lg object-contain"
                     />
                   </div>
 
@@ -154,28 +152,9 @@ export function DonationSection({
                   <h3 className="font-display font-bold text-lg text-foreground mb-6 text-center">Pay with Zelle</h3>
 
                   <div className="space-y-3">
-                    {/* Email */}
-                    <div className="p-4 bg-background rounded-2xl">
-                      <p className="text-xs text-muted-foreground mb-1.5">Send to email</p>
-                      <div className="flex items-center justify-between gap-3">
-                        <code className="text-foreground font-medium text-sm break-all">{zelleEmail}</code>
-                        <button
-                          onClick={() => copyToClipboard(zelleEmail, "email")}
-                          className="shrink-0 p-2 rounded-lg hover:bg-secondary transition-colors"
-                          aria-label="Copy email"
-                        >
-                          {copiedField === "email" ? (
-                            <Check className="w-4 h-4 text-chart-3" />
-                          ) : (
-                            <Copy className="w-4 h-4 text-muted-foreground" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
                     {/* Phone */}
                     <div className="p-4 bg-background rounded-2xl">
-                      <p className="text-xs text-muted-foreground mb-1.5">Zelle just a phone number</p>
+                      <p className="text-xs text-muted-foreground mb-1.5">Zelle Phone Number</p>
                       <div className="flex items-center justify-between gap-3">
                         <code className="text-foreground font-medium text-sm">{zellePhone}</code>
                         <button
