@@ -23,7 +23,7 @@ export interface Donor {
 // UPDATE THIS SECTION AS DONATIONS COME IN
 // ==============================================
 
-export const DONATION_GOAL = 2000
+export const DONATION_GOAL = 2450
 
 // Add new donors here - most recent first
 export const DONORS: Donor[] = [
@@ -76,8 +76,8 @@ export const DONORS: Donor[] = [
   },
 ]
 
-// This is calculated automatically from the DONORS array
-export const CURRENT_TOTAL = DONORS.reduce((sum, donor) => sum + donor.amount, 0)
+// Manually set to reflect actual amount raised
+export const CURRENT_TOTAL = 700
 
 // ==============================================
 // CONFIGURATION

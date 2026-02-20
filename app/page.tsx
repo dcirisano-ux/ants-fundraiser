@@ -3,9 +3,9 @@ import { DonationTracker } from "@/components/donation-tracker"
 import { StorySection } from "@/components/story-section"
 import { DonationSection } from "@/components/donation-section"
 import { DonorWall } from "@/components/donor-wall"
-import { Heart } from "lucide-react"
+import { AnimatedBackground } from "@/components/animated-background"
+import { Star } from "lucide-react"
 
-// Import donor data and configuration
 import {
   DONORS,
   CURRENT_TOTAL,
@@ -20,7 +20,8 @@ import {
 export default function FundraiserPage() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      {/* Content */}
+      <AnimatedBackground />
+
       <div className="relative z-10">
         <HeroSection performerName={PERFORMER_NAME} />
 
@@ -30,7 +31,15 @@ export default function FundraiserPage() {
           donorCount={DONORS.length}
         />
 
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="h-px bg-border" />
+        </div>
+
         <StorySection performerName={PERFORMER_NAME} />
+
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="h-px bg-border" />
+        </div>
 
         <DonationSection
           venmoUsername={VENMO_USERNAME}
@@ -39,28 +48,32 @@ export default function FundraiserPage() {
           donationNote={DONATION_NOTE}
         />
 
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="h-px bg-border" />
+        </div>
+
         <DonorWall donors={DONORS} />
 
-        {/* Thank you section */}
-        <section className="py-16 px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 mb-6">
-              <Heart className="w-6 h-6 text-accent" />
+        {/* Thank you */}
+        <section className="py-20 px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mb-6">
+              <Star className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Thank You for Your Support
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Thank you for your support
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
               Every donation, no matter the size, brings {PERFORMER_NAME} closer to the stage
-              at Lincoln Center. Your generosity means the world to us.
+              at Lincoln Center. Your generosity means the world.
             </p>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-4 border-t border-border">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-muted-foreground text-sm">
+        <footer className="py-8 px-6 border-t border-border">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-muted-foreground text-xs">
               A fundraiser for {PERFORMER_NAME}&apos;s Lincoln Center trip
             </p>
           </div>

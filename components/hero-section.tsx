@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronDown, Theater, Star } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 
 interface HeroSectionProps {
   performerName: string
@@ -16,66 +16,61 @@ export function HeroSection({ performerName }: HeroSectionProps) {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-
-      {/* Floating decorative elements */}
-      <div className="absolute top-20 left-10 opacity-20">
-        <Theater className="w-16 h-16 text-primary animate-float" style={{ animationDelay: '0s' }} />
-      </div>
-      <div className="absolute top-40 right-16 opacity-15">
-        <Star className="w-12 h-12 text-accent animate-float" style={{ animationDelay: '1s' }} />
-      </div>
-      <div className="absolute bottom-40 left-20 opacity-10">
-        <Star className="w-8 h-8 text-primary animate-float" style={{ animationDelay: '2s' }} />
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
+      {/* Stage spotlight effects */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }}
+        />
+        <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/10 to-transparent" />
+        <div className="absolute top-0 right-1/4 w-px h-32 bg-gradient-to-b from-primary/10 to-transparent" />
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-          <Theater className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Lincoln Center Fundraiser</span>
-        </div>
+      <div className="relative z-10 text-center max-w-3xl mx-auto">
+        {/* Small label */}
+        <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-8 animate-fadeIn">
+          Lincoln Center Fundraiser
+        </p>
 
-        {/* Main headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+        {/* Bold headline */}
+        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8 text-balance animate-slideUp">
           <span className="text-foreground">Help </span>
           <span className="text-primary">{performerName}</span>
           <br />
-          <span className="text-foreground">Take the Stage</span>
+          <span className="text-foreground">take the stage</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-          Support a passionate young performer on his journey to
-          <span className="text-foreground font-medium"> Lincoln Center, NYC</span> -
-          one of the most prestigious stages in the world.
+        <p className="text-base md:text-lg text-muted-foreground mb-12 max-w-lg mx-auto leading-relaxed animate-slideUp" style={{ animationDelay: "0.1s" }}>
+          Support a young actor and singer on his once-in-a-lifetime journey to
+          perform at one of the world&apos;s most iconic venues.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 animate-slideUp" style={{ animationDelay: "0.2s" }}>
           <button
             onClick={scrollToDonate}
-            className="px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-xl hover:bg-primary/90 transition-all hover:scale-[1.02] shadow-lg shadow-primary/20"
+            className="group relative px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-all text-base overflow-hidden"
           >
-            Donate Now
+            <span className="relative z-10">Donate now</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
           </button>
           <button
             onClick={scrollToContent}
-            className="px-8 py-4 border border-border text-foreground font-medium text-lg rounded-xl hover:bg-secondary transition-all"
+            className="px-8 py-4 border border-border text-foreground font-medium rounded-full hover:bg-secondary transition-colors text-base"
           >
-            Learn More
+            Read the story
           </button>
         </div>
 
         {/* Scroll indicator */}
         <button
           onClick={scrollToContent}
-          className="animate-bounce text-muted-foreground hover:text-primary transition-colors"
+          className="text-muted-foreground hover:text-foreground transition-colors animate-bounce"
           aria-label="Scroll down"
         >
-          <ChevronDown className="w-8 h-8" />
+          <ArrowDown className="w-5 h-5" />
         </button>
       </div>
     </section>

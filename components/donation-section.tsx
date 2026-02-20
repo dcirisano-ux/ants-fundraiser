@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Smartphone, Copy, Check, ExternalLink, CreditCard, Banknote } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Smartphone, Copy, Check, ExternalLink, Plane, Hotel, Ticket, UtensilsCrossed } from "lucide-react"
+import { ScrollReveal } from "@/components/animated-background"
 
 interface DonationSectionProps {
   venmoUsername: string
@@ -56,203 +55,208 @@ export function DonationSection({
     { amount: 250, label: "$250" },
   ]
 
+  const breakdownItems = [
+    { icon: Plane, label: "Travel to New York City" },
+    { icon: Hotel, label: "Accommodations during the trip" },
+    { icon: Ticket, label: "Performance-related expenses" },
+    { icon: UtensilsCrossed, label: "Meals and activities" },
+  ]
+
   return (
-    <section id="donate" className="py-20 px-4 bg-card/30">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <CreditCard className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Support Anthony</span>
+    <section id="donate" className="py-20 px-6">
+      <div className="max-w-3xl mx-auto">
+        {/* Section header */}
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
+              Support Anthony
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+              Make a donation
+            </h2>
+            <p className="text-muted-foreground max-w-md mx-auto text-sm">
+              Choose your preferred payment method below. Every contribution makes a difference.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Make a Donation
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Choose your preferred payment method below. Every contribution makes a difference.
-          </p>
-        </div>
+        </ScrollReveal>
 
-        {/* Payment method tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-secondary rounded-xl p-1">
-            <button
-              onClick={() => setActiveTab("venmo")}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                activeTab === "venmo"
-                  ? "bg-[#008CFF] text-white shadow-md"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Venmo
-            </button>
-            <button
-              onClick={() => setActiveTab("zelle")}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                activeTab === "zelle"
-                  ? "bg-[#6D1ED4] text-white shadow-md"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Zelle
-            </button>
+        {/* Tabs */}
+        <ScrollReveal>
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex bg-secondary rounded-full p-1">
+              <button
+                onClick={() => setActiveTab("venmo")}
+                className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all ${
+                  activeTab === "venmo"
+                    ? "bg-[#008CFF] text-[#ffffff]"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Venmo
+              </button>
+              <button
+                onClick={() => setActiveTab("zelle")}
+                className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all ${
+                  activeTab === "zelle"
+                    ? "bg-[#6D1ED4] text-[#ffffff]"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Zelle
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Payment Info Card */}
-          <Card className="bg-card border-border">
-            <CardContent className="p-8">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
+          {/* Payment card */}
+          <ScrollReveal>
+            <div className="bg-secondary rounded-3xl p-8">
               {activeTab === "venmo" ? (
                 <div className="text-center">
-                  <h3 className="font-bold text-xl text-foreground mb-6">Pay with Venmo</h3>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-6">Pay with Venmo</h3>
 
-                  {/* QR Code */}
-                  <div className="bg-white p-4 rounded-xl inline-block mb-4">
+                  <div className="bg-[#ffffff] p-4 rounded-2xl inline-block mb-4">
                     <img
                       src={qrCodeUrl}
                       alt={`Venmo QR code for @${venmoUsername}`}
                       width={180}
                       height={180}
                       className="rounded-lg"
+                      crossOrigin="anonymous"
                     />
                   </div>
 
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Scan QR code or send to{" "}
                     <span className="text-foreground font-medium">@{venmoUsername}</span>
                   </p>
 
-                  <Button
+                  <button
                     onClick={handleOpenVenmo}
-                    className="w-full bg-[#008CFF] hover:bg-[#0074D4] text-white mb-3"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#008CFF] text-[#ffffff] font-semibold rounded-full hover:opacity-90 transition-opacity text-sm mb-3"
                   >
-                    <Smartphone className="w-5 h-5 mr-2" />
+                    <Smartphone className="w-4 h-4" />
                     Open Venmo App
-                  </Button>
+                  </button>
 
                   <a
                     href={venmoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    Open in browser <ExternalLink className="w-4 h-4" />
+                    Open in browser <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
               ) : (
                 <div>
-                  <h3 className="font-bold text-xl text-foreground mb-6 text-center">Pay with Zelle</h3>
+                  <h3 className="font-display font-bold text-lg text-foreground mb-6 text-center">Pay with Zelle</h3>
 
-                  <div className="space-y-4">
-                    {/* Email option */}
-                    <div className="p-4 bg-secondary/50 rounded-xl">
-                      <p className="text-sm text-muted-foreground mb-2">Send to email:</p>
+                  <div className="space-y-3">
+                    {/* Email */}
+                    <div className="p-4 bg-background rounded-2xl">
+                      <p className="text-xs text-muted-foreground mb-1.5">Send to email</p>
                       <div className="flex items-center justify-between gap-3">
-                        <code className="text-foreground font-medium break-all">{zelleEmail}</code>
-                        <Button
-                          variant="outline"
-                          size="sm"
+                        <code className="text-foreground font-medium text-sm break-all">{zelleEmail}</code>
+                        <button
                           onClick={() => copyToClipboard(zelleEmail, "email")}
-                          className="shrink-0"
+                          className="shrink-0 p-2 rounded-lg hover:bg-secondary transition-colors"
+                          aria-label="Copy email"
                         >
                           {copiedField === "email" ? (
-                            <Check className="w-4 h-4 text-green-500" />
+                            <Check className="w-4 h-4 text-chart-3" />
                           ) : (
-                            <Copy className="w-4 h-4" />
+                            <Copy className="w-4 h-4 text-muted-foreground" />
                           )}
-                        </Button>
+                        </button>
                       </div>
                     </div>
 
-                    {/* Phone option */}
-                    <div className="p-4 bg-secondary/50 rounded-xl">
-                      <p className="text-sm text-muted-foreground mb-2">Or send to phone:</p>
+                    {/* Phone */}
+                    <div className="p-4 bg-background rounded-2xl">
+                      <p className="text-xs text-muted-foreground mb-1.5">Or send to phone</p>
                       <div className="flex items-center justify-between gap-3">
-                        <code className="text-foreground font-medium">{zellePhone}</code>
-                        <Button
-                          variant="outline"
-                          size="sm"
+                        <code className="text-foreground font-medium text-sm">{zellePhone}</code>
+                        <button
                           onClick={() => copyToClipboard(zellePhone, "phone")}
-                          className="shrink-0"
+                          className="shrink-0 p-2 rounded-lg hover:bg-secondary transition-colors"
+                          aria-label="Copy phone"
                         >
                           {copiedField === "phone" ? (
-                            <Check className="w-4 h-4 text-green-500" />
+                            <Check className="w-4 h-4 text-chart-3" />
                           ) : (
-                            <Copy className="w-4 h-4" />
+                            <Copy className="w-4 h-4 text-muted-foreground" />
                           )}
-                        </Button>
+                        </button>
                       </div>
                     </div>
 
                     {/* Note */}
-                    <div className="p-4 bg-primary/5 rounded-xl border border-primary/10">
-                      <p className="text-sm text-muted-foreground mb-2">Include this note:</p>
+                    <div className="p-4 bg-primary/5 border border-primary/10 rounded-2xl">
+                      <p className="text-xs text-muted-foreground mb-1.5">Include this note</p>
                       <div className="flex items-center justify-between gap-3">
                         <span className="text-foreground font-medium text-sm">{donationNote}</span>
-                        <Button
-                          variant="outline"
-                          size="sm"
+                        <button
                           onClick={() => copyToClipboard(donationNote, "note")}
-                          className="shrink-0"
+                          className="shrink-0 p-2 rounded-lg hover:bg-secondary transition-colors"
+                          aria-label="Copy note"
                         >
                           {copiedField === "note" ? (
-                            <Check className="w-4 h-4 text-green-500" />
+                            <Check className="w-4 h-4 text-chart-3" />
                           ) : (
-                            <Copy className="w-4 h-4" />
+                            <Copy className="w-4 h-4 text-muted-foreground" />
                           )}
-                        </Button>
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-xs text-muted-foreground mt-6 text-center">
+                  <p className="text-xs text-muted-foreground mt-5 text-center">
                     Open your banking app and look for Zelle in the send money section
                   </p>
                 </div>
               )}
-            </CardContent>
-          </Card>
-
-          {/* Suggested amounts & info */}
-          <div>
-            <h3 className="font-bold text-lg text-foreground mb-4">Suggested Amounts</h3>
-
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {suggestedAmounts.map((item) => (
-                <Card
-                  key={item.amount}
-                  className="bg-secondary/30 border-border hover:border-primary/50 transition-all cursor-pointer hover:scale-[1.02]"
-                  onClick={activeTab === "venmo" ? handleOpenVenmo : undefined}
-                >
-                  <CardContent className="p-4 text-center">
-                    <div className="text-2xl font-bold text-primary">{item.label}</div>
-                  </CardContent>
-                </Card>
-              ))}
             </div>
+          </ScrollReveal>
 
-            {/* How funds are used */}
-            <Card className="bg-secondary/30 border-border">
-              <CardContent className="p-5">
-                <div className="flex items-start gap-3">
-                  <Banknote className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">How Your Donation Helps</h4>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>Travel to New York City</li>
-                      <li>Accommodations during the trip</li>
-                      <li>Performance-related expenses</li>
-                      <li>Meals and activities</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          {/* Right column */}
+          <ScrollReveal>
+            <div>
+              <h3 className="font-display font-bold text-foreground mb-4">Suggested amounts</h3>
 
-            <p className="text-sm text-muted-foreground mt-6 text-center">
-              Any amount helps! Thank you for your generosity.
-            </p>
-          </div>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {suggestedAmounts.map((item) => (
+                  <button
+                    key={item.amount}
+                    onClick={activeTab === "venmo" ? handleOpenVenmo : undefined}
+                    className="group py-5 bg-secondary rounded-2xl text-center hover:bg-muted transition-all duration-300"
+                  >
+                    <span className="font-display text-xl font-bold text-primary group-hover:scale-110 inline-block transition-transform duration-300">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* How funds are used */}
+              <div className="bg-secondary rounded-2xl p-6">
+                <h4 className="font-display font-semibold text-foreground mb-4 text-sm">How your donation helps</h4>
+                <ul className="text-sm text-muted-foreground space-y-3">
+                  {breakdownItems.map((item) => (
+                    <li key={item.label} className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-3.5 h-3.5 text-primary" />
+                      </div>
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className="text-xs text-muted-foreground mt-6 text-center">
+                Any amount helps. Thank you for your generosity.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
